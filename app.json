@@ -1,0 +1,7 @@
+{
+  "name": "Node.js Cookie machine",
+  "description": "A Node.js app for a real-time mini game",
+  "repository": "https://github.com/Gimond/cookies_game",
+  // "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  // "keywords": ["node", "express", "static"]
+}
