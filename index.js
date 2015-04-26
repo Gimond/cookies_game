@@ -5,13 +5,15 @@ var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
-app.use(express.static(__dirname + '/public'));
-
 app.get('/', function(request, response) {
   response.send('Hello, listening on port 80!');
 });
+app.use(function(req, res, next) {
+  res.status(404).send('Sorry cant find that!');
+});
 
-server.listen(80);
+// server.listen(80);
+server.listen(process.env.PORT || 80);
 
 var id_joueurs = {};
 var joueurs = {};
