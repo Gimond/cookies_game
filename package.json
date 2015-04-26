@@ -1,6 +1,6 @@
 {
   "name": "cookies_game",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "A Node.js app for a real-time mini game",
   "main": "index.js",
   "scripts": {
