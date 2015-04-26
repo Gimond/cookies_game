@@ -7,8 +7,8 @@ var io = require('socket.io').listen(server);
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/index.html');
+app.get('/', function(request, response) {
+  response.send('Hello, listening on port 80!');
 });
 
 server.listen(80);
