@@ -5,15 +5,15 @@ var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
+// server.listen(80);
+server.listen(process.env.PORT || 3000);
+
 app.get('/', function(request, response) {
   response.send('Hello, listening on port 80!');
 });
 app.use(function(req, res, next) {
   res.status(404).send('Sorry cant find that!');
 });
-
-// server.listen(80);
-server.listen(process.env.PORT || 80);
 
 var id_joueurs = {};
 var joueurs = {};
@@ -49,15 +49,12 @@ io.sockets.on('connection', function (socket) {
 
 	socket.on('bouge', function(data){
 		joueurs[socket.id_joueur].haut = false;
-		joueurs[socket.id_joueur].bas = false;
 		joueurs[socket.id_joueur].gauche = false;
 		joueurs[socket.id_joueur].droite = false;
 
 		if (data != ""){
 			if (data.indexOf('haut') !== -1)
 				joueurs[socket.id_joueur].haut = true;
-			if (data.indexOf('bas') !== -1)
-				joueurs[socket.id_joueur].bas = true;
 			if (data.indexOf('gauche') !== -1)
 				joueurs[socket.id_joueur].gauche = true;
 			if (data.indexOf('droite') !== -1)
