@@ -11,7 +11,8 @@
     "socket.io": "*"
   },
   "engines": {
-    "node": "0.12.2"
+    "node": "0.12.2",
+    "npm": "*"
   },
   "repository": {
     "type": "git",
