@@ -2,21 +2,11 @@
   "name": "cookies_game",
   "version": "0.1.0",
   "description": "A Node.js app for a real-time mini game",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
   "dependencies": {
     "express": "^4.4.5",
     "socket.io": "*"
   },
   "engines": {
-    "node": "0.12.2",
-    "npm": "*"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Gimond/cookies_game"
-  },
-  "license": "MIT"
+    "node": "^0.12.2"
+  }
 }
