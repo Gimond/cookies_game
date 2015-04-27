@@ -2,8 +2,8 @@ var express = require('express')
   , http = require('http');
 
 var app = express();
-var server = http.Server(app);
-var io = require('socket.io').(server);
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
 
 // server.listen(80);
 //server.listen(process.env.PORT || 3000);
@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
   res.status(404).send('Sorry cant find that!');
 });
 
-/*
+
 var id_joueurs = {};
 var joueurs = {};
 
@@ -103,4 +103,3 @@ io.sockets.on('connection', function (socket) {
 	});
 
 });
-    */
