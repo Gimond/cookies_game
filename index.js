@@ -34,13 +34,10 @@ io.sockets.on('connection', function (socket) {
 
 		joueurs[socket.id_joueur] = {};
 		joueurs[socket.id_joueur].id_joueur = joueur.id_joueur;
-		joueurs[socket.id_joueur].id_skin_joueur = Math.floor(Math.random()*3)+0;
 		joueurs[socket.id_joueur].vitesse = 2; //Math.floor(Math.random()*2)+1
 		joueurs[socket.id_joueur].nom = joueur.nom;
-		joueurs[socket.id_joueur].x = Math.floor(Math.random()*600)+100;
-		joueurs[socket.id_joueur].y = Math.floor(Math.random()*400)+100;
+		joueurs[socket.id_joueur].x = Math.floor(Math.random()*500)+100;
 		joueurs[socket.id_joueur].haut = false;
-		joueurs[socket.id_joueur].bas = false;
 		joueurs[socket.id_joueur].gauche = false;
 		joueurs[socket.id_joueur].droite = false;
 
@@ -69,16 +66,16 @@ io.sockets.on('connection', function (socket) {
 
 	socket.on('sync_pos', function(data){
 		if (joueurs[socket.id_joueur] != undefined){
-			// console.log("---------------");
-			// console.log(socket.id_joueur);
-			// console.log(data[0]);
-			// console.log(data[1]);
-			// console.log("---------------");
 			joueurs[socket.id_joueur].x = data[0];
-			joueurs[socket.id_joueur].y = data[1];
-			socket.broadcast.emit('update_pos', [socket.id_joueur, data[0], data[1]]);
+			socket.broadcast.emit('update_pos', [socket.id_joueur, data[0]]);
 		}
 	});
+
+    socket.on('jump', function(){
+        if (joueurs[socket.id_joueur] != undefined){
+            socket.broadcast.emit('jump', [socket.id_joueur]);
+        }
+    });
 
 	socket.on('message', function(data){
 		console.log("message recu "+data);
