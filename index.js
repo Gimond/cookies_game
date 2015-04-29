@@ -71,7 +71,7 @@ io.sockets.on('connection', function (socket) {
 		}
 	});
 
-    socket.on('jump', function(){
+    socket.on('jump', function(data){
         console.log("jump "+data);
         if (joueurs[socket.id_joueur] != undefined){
             socket.broadcast.emit('jump', [socket.id_joueur]);
