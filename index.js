@@ -12,7 +12,7 @@ server.listen(process.env.PORT || 3000, function(){
 });
 
 app.get('/', function(request, response) {
-  response.send('Hello, listening on port '+process.env.PORT);
+  response.send(process.env.PORT);
 });
 app.use(function(req, res, next) {
   res.status(404).send('Sorry cant find that!');
